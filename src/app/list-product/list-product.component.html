@@ -1,0 +1,31 @@
+<div class="container text-center">
+  <h1>Todos os Produtos Cadastrados</h1>
+
+  <table class="table table-striped table-bordered table-hover">
+    <tbody>
+      <tr>
+        <td style="width: 70px" class="text-center">
+          <span>ID</span>
+        </td>
+        <td class="text-center" style="width: 200px">
+          <span>Descrição</span>
+        </td>
+        <td class="text-center" style="width: 200px">
+          <span>Código do Fornecedor</span>
+        </td>
+      </tr>
+      <tr *ngFor="let allProducts of products">
+        <td style="width: 70px" class="text-center">
+          <span>{{ allProducts.idProduct }}</span>
+        </td>
+        <td class="text-center" style="width: 200px">
+          <span>{{ allProducts.description }}</span>
+        </td>
+        <td class="text-center" style="width: 200px">
+          <span>{{ allProducts.codeMaker }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p *ngIf="products.length == 0">Nenhuma produto em estoque.</p>
