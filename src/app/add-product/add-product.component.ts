@@ -23,7 +23,7 @@ export class AddProductComponent implements OnInit {
     this.product.description = form.value.descriptionProduct;
     this.product.codeMaker = form.value.codeMaker;
     this.productService.addProduct(this.product);
-    window.location.reload;
+    window.location.reload();
   }
 
   clearCamp() {
