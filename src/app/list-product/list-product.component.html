@@ -14,12 +14,18 @@
           <span>Código do Fornecedor</span>
         </td>
         <td class="text-center" style="width: 200px">
-          <span>Filtrar Lista por palavra</span><input type="text" class="form-control rounded-3 shadow-lg  border-0" [(ngModel)] = "filterDescription"  (keyup)="filterByDescription($event)">
+          <span>Filtrar Lista por palavra</span
+          ><input
+            type="text"
+            class="form-control rounded-3 shadow-lg border-0"
+            [(ngModel)]="filterDescription"
+            (keyup)="filterByDescription($event)"
+          />
         </td>
       </tr>
-      </tbody>
-<tbody *ngIf="!showPane">
-      <tr *ngFor="let allProducts of products"  >
+    </tbody>
+    <tbody *ngIf="!showPane">
+      <tr *ngFor="let allProducts of products">
         <td style="width: 70px" class="text-center">
           <span>{{ allProducts.idProduct }}</span>
         </td>
@@ -29,10 +35,19 @@
         <td class="text-center" style="width: 200px">
           <span>{{ allProducts.codeMaker }}</span>
         </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="DeleteProduct(allProducts.idProduct)"
+          >
+            Deletar
+          </button>
+        </td>
       </tr>
     </tbody>
-      <tbody *ngIf="showPane">
-       <tr *ngFor="let allProduct of productsOfFilter" >
+    <tbody *ngIf="showPane">
+      <tr *ngFor="let allProduct of productsOfFilter">
         <td style="width: 70px" class="text-center">
           <span>{{ allProduct.idProduct }}</span>
         </td>
@@ -42,10 +57,21 @@
         <td class="text-center" style="width: 200px">
           <span>{{ allProduct.codeMaker }}</span>
         </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="DeleteProduct(allProduct.idProduct)"
+          >
+            Deletar
+          </button>
+        </td>
       </tr>
-      </tbody>
-      <tbody><div class="bg-danger text-white"><p *ngIf="products.length == 0">Nenhum produto em estoque.</p></div></tbody>
-
+    </tbody>
+    <tbody>
+      <div class="bg-danger text-white">
+        <p *ngIf="products.length == 0">Nenhum produto em estoque.</p>
+      </div>
+    </tbody>
   </table>
 </div>
-
