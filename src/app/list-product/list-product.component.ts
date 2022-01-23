@@ -9,7 +9,9 @@ import { Product } from '../repository/product/product.model';
 })
 export class ListProductComponent implements OnInit {
   products!: Product[];
-
+  filterDescription: string = '';
+  showPane: boolean = false;
+  productsOfFilter!: Product[];
   constructor(private productService: ProductServiceService) {}
 
   ngOnInit(): void {
@@ -18,5 +20,30 @@ export class ListProductComponent implements OnInit {
 
   getAllProduct(): Product[] {
     return this.productService.getAllProduct();
+  }
+
+  filterByDescription(event: KeyboardEvent): any {
+    this.productsOfFilter = [];
+    this.filterDescription = (<HTMLInputElement>event.target).value;
+    if (this.filterDescription == '') {
+      this.showPane = false;
+    } else {
+      this.showPane = true;
+      this.products.forEach((position) => {
+        if (position.description?.includes(this.filterDescription)) {
+          if (!this.productsOfFilter.length) {
+            this.productsOfFilter.push(position);
+          } else {
+            for (let x = 0; this.productsOfFilter.length; x++) {
+              if (position.idProduct == this.productsOfFilter[x].idProduct) {
+              }
+              this.productsOfFilter.push(position);
+              break;
+            }
+          }
+        } else {
+        }
+      });
+    }
   }
 }
