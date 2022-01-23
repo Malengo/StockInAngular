@@ -1,22 +1,36 @@
-<div class="container  d-flex align-items-center justify-content-center">
-
-<div class="bg-info row rounded-3 text-white">
-<h3 class="text-center ">Cadastrar Produtos</h3>
-<form #formProduct="ngForm" (ngSubmit)="addProduct(formProduct)">
-<div class="mb-3">
-<label class="form-label" >Descrição do Produto: </label>
-<input type="text" class="form-control rounded-3  shadow-lg  border-0" id="descriptionProduct" name="descriptionProduct" [(ngModel)]="descriptionProduct">
-</div>
-<div class="mb-3">
-<label class="form-label">Código do Fabricante: </label>
-<input type="text" class="form-control rounded-3 shadow-lg  border-0" id="codeMaker" name="codeMaker" [(ngModel)] = "codeMaker">
-</div>
-<div class="row d-flex justify-content-center ">
-<button type="submit" class=" col-3 btn btn-secondary align-items-center " [disabled]="descriptionProduct === '' || codeMaker === ''">Cadastrar</button>
-</div>
-
-</form>
-
-</div>
-
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="bg-info row rounded-3 text-white">
+    <h3 class="text-center">Cadastrar Produtos</h3>
+    <form #formProduct="ngForm" (ngSubmit)="addProduct(formProduct)">
+      <div class="mb-3">
+        <label class="form-label">Descrição do Produto: </label>
+        <input
+          type="text"
+          class="form-control rounded-3 shadow-lg border-0"
+          id="descriptionProduct"
+          name="descriptionProduct"
+          [(ngModel)]="descriptionProduct"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Código do Fabricante: </label>
+        <input
+          type="text"
+          class="form-control rounded-3 shadow-lg border-0"
+          id="codeMaker"
+          name="codeMaker"
+          [(ngModel)]="codeMaker"
+        />
+      </div>
+      <div class="row d-flex justify-content-center">
+        <button
+          type="submit"
+          class="col-3 btn btn-secondary align-items-center"
+          [disabled]="descriptionProduct === '' || codeMaker === ''"
+        >
+          Cadastrar
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
