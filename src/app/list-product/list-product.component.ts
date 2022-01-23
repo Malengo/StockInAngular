@@ -46,4 +46,13 @@ export class ListProductComponent implements OnInit {
       });
     }
   }
+
+  DeleteProduct(idProduct: any){
+    this.products.forEach((position=>{
+      if(position.idProduct == idProduct){
+        this.productService.deleteProduct(this.products.indexOf(position));
+      }
+      this.ngOnInit();
+    }))
+  }
 }
