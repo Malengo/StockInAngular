@@ -22,7 +22,7 @@ export class ListProductComponent implements OnInit {
     return this.productService.getAllProduct();
   }
 
-  filterByDescription(event: KeyboardEvent): any {
+  filterByDescription(event: KeyboardEvent) {
     this.productsOfFilter = [];
     this.filterDescription = (<HTMLInputElement>event.target).value;
     if (this.filterDescription == '') {
@@ -47,12 +47,8 @@ export class ListProductComponent implements OnInit {
     }
   }
 
-  DeleteProduct(idProduct: any){
-    this.products.forEach((position=>{
-      if(position.idProduct == idProduct){
-        this.productService.deleteProduct(this.products.indexOf(position));
-      }
-      this.ngOnInit();
-    }))
+  DeleteProduct(idProduct: any) {
+    this.productService.deleteProduct(this.products.indexOf(idProduct));
+    this.ngOnInit();
   }
 }
