@@ -18,9 +18,13 @@ export class ProductServiceService {
     products.push(product);
     localStorage['product'] = JSON.stringify(products);
   }
-  deleteProduct(idProduct: number): void{
+  deleteProduct(idProduct: number): void {
     const products = this.getAllProduct();
     products.splice(idProduct, 1);
     localStorage['product'] = JSON.stringify(products);
-  };
+  }
+
+  updateProduct(product: Product): void {
+    localStorage.setItem('product', JSON.stringify(product));
+  }
 }

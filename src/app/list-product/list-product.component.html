@@ -25,9 +25,49 @@
       </tr>
     </tbody>
     <tbody *ngIf="!showPane">
-      <tr *ngFor="let allProducts of products">
+      <tr *ngFor="let allProducts of products; index as i">
         <td style="width: 70px" class="text-center">
           <span>{{ allProducts.idProduct }}</span>
+          <div
+            class="modal fade"
+            [id]="'modal'+i"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" >
+                   Alteração dos Dados do Produto
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <update-product
+                    [id]="allProducts.idProduct"
+                    [descriptionProduc]="allProducts.description"
+                    [codeMaker]="allProducts.codeMaker"
+                  ></update-product>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </td>
         <td class="text-center" style="width: 200px">
           <span>{{ allProducts.description }}</span>
@@ -42,6 +82,14 @@
             (click)="DeleteProduct(allProducts.idProduct)"
           >
             Deletar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            [attr.data-bs-target]="'#modal'+i"
+          >
+            Alterar
           </button>
         </td>
       </tr>
