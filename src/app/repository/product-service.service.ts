@@ -25,6 +25,12 @@ export class ProductServiceService {
   }
 
   updateProduct(product: Product): void {
-    localStorage.setItem('product', JSON.stringify(product));
+    const products: Product[] = this.getAllProduct();
+    products.forEach((anyProduct, position, allProduct) => {
+      if (product.idProduct === anyProduct.idProduct) {
+        allProduct[position] = product;
+      }
+    });
+    localStorage['product'] = JSON.stringify(products);
   }
 }

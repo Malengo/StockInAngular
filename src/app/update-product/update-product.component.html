@@ -1,5 +1,5 @@
 
-        <form #formProduct="ngForm">
+        <form #formProduct="ngForm" (ngSubmit)="updateProduct()">
           <div class="mb-3">
             <label class="form-label">Descrição do Produto: </label>
             <input
@@ -7,7 +7,8 @@
               class="form-control rounded-3  border-0"
               id="descriptionProduct"
               name="descriptionProduct"
-              value="{{descriptionProduc}}"
+              value="{{descriptionProduct}}"
+              [(ngModel)]="descriptionProduct"
             />
           </div>
           <div class="mb-3">
@@ -18,6 +19,7 @@
               id="codeMaker"
               name="codeMaker"
               value="{{codeMaker}}"
+              [(ngModel)] = "codeMaker"
             />
           </div>
           <div class="row d-flex justify-content-center">
